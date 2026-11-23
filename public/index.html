@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Scrxaper — Connect freely. Belong anywhere.</title>
+  <meta name="description" content="Scrxaper is one place for messaging, communities, voice and video calls, reels and stories. Installable on any device.">
+  <link rel="icon" href="/favicon.png">
+  <link rel="manifest" href="/manifest.webmanifest">
+  <meta name="theme-color" content="#0b0d10">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="apple-touch-icon" href="/icon-192.png">
+  <link rel="stylesheet" href="/app.css">
+  <link rel="stylesheet" href="/v2.css">
+</head>
+<body>
+  <!-- ============ Landing ============ -->
+  <main id="auth" hidden>
+    <header class="lnav">
+      <a class="lbrand" href="#top" aria-label="Scrxaper"><img src="/logo.png" alt="" width="32" height="32"><span>SCRXAPER</span></a>
+      <nav class="llinks" aria-label="Sections"><a href="#features">Features</a><a href="#calls">Calls</a><a href="#communities">Communities</a><a href="#everywhere">Everywhere</a></nav>
+      <span class="grow"></span>
+      <button class="link" id="nav-login" type="button">Log in</button>
+      <button class="primary small" id="nav-join" type="button">Get started</button>
+    </header>
+
+    <section class="lhero" id="top">
+      <div class="hero"><img src="/brand/hero-glass.png" alt="Scrxaper. Connect freely. Belong anywhere." width="1254" height="423" fetchpriority="high"></div>
+      <div class="lhero-copy reveal">
+        <h1>One place for <span class="hl">every conversation</span>.</h1>
+        <p>Chat with friends, build communities with their own bots, hop on a voice channel, share reels and stories — and make every call sound like <em class="hl2">you</em>.</p>
+        <div class="cta"><button class="primary" id="hero-join" type="button">Create your account</button><button class="ghost" id="hero-login" type="button">I already have one</button><button class="ghost" id="install-app" type="button" hidden></button></div>
+        <ul class="points" aria-label="What is in Scrxaper"><li>Chat</li><li>Communities</li><li>Voice</li><li>Reels</li><li>Studio</li></ul>
+      </div>
+    </section>
+
+    <section class="lsec" id="features">
+      <h2 class="reveal">Everything you need, <span class="hl">nothing you don’t</span></h2>
+      <div class="fgrid" id="fgrid"></div>
+    </section>
+
+    <section class="lsec split" id="calls">
+      <div class="reveal">
+        <p class="eyebrow">Calls</p>
+        <h2>Calls that <span class="hl">look and sound</span> like you</h2>
+        <p>Pick a full-length song as your ringtone (up to 10&nbsp;MB, any length) and choose how your call screen moves to the beat — spinning CD, halo, equalizer, wave, pulse or orbit — in any colour. Callers hear a calling tune, never your ringtone.</p>
+        <div class="chips" id="demo-styles" role="group" aria-label="Call screen styles"></div>
+        <div class="swatches" id="demo-colors" role="group" aria-label="Spectrum colour"></div>
+      </div>
+      <div class="demo reveal"><div class="demo-phone"><div id="demo-spec"></div><strong>Ava Moreno</strong><span>Incoming call…</span><div class="demo-btns"><span class="dbtn ok"></span><span class="dbtn no"></span></div></div></div>
+    </section>
+
+    <section class="lsec split rev" id="communities">
+      <div class="demo reveal" aria-hidden="true">
+        <div class="mock"><div class="mock-rail"><i class="on"></i><i></i><i></i><i></i></div><div class="mock-ch"><b># general</b><b># music</b><b># memes</b><em>VOICE</em><b>lounge</b></div><div class="mock-chat"><p>Welcome, Sam!</p><p class="me">!play night drive</p><p class="bot">Now playing</p></div></div>
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">Communities</p>
+        <h2>Your own space, with <span class="hl">built-in bots</span></h2>
+        <p>Create a community or group and switch on ready-made bots in one tap: <strong>Security</strong> keeps spam out, <strong>Music</strong> plays tracks you upload, <strong>Welcome</strong> greets newcomers and <strong>Fun</strong> brings dice and games. No tokens, no setup.</p>
+        <ul class="ticks"><li>Text and voice channels, drag to reorder</li><li>Roles, timeouts, moderation log</li><li>Owner, admin and staff roles for the whole site</li></ul>
+      </div>
+    </section>
+
+    <section class="lsec" id="everywhere">
+      <h2 class="reveal">Install it. <span class="hl">Take it everywhere.</span></h2>
+      <div class="fgrid three">
+        <article class="fcard reveal"><i data-ico="install"></i><h3>Installable app</h3><p>Add Scrxaper to your phone or desktop from your browser. It gets its own icon and window.</p></article>
+        <article class="fcard reveal"><i data-ico="bell"></i><h3>Calls that wake your phone</h3><p>With the installed app and notifications on, incoming calls and messages reach you even when the screen is off.</p></article>
+        <article class="fcard reveal"><i data-ico="lock"></i><h3>In your control</h3><p>Private accounts, friends-only messages, per-chat mutes, and a full Studio to customise how everything looks.</p></article>
+      </div>
+      <p class="fine reveal">Messages are protected in transit by TLS and are <strong>not</strong> end-to-end encrypted. Calls are peer to peer.</p>
+    </section>
+
+    <section class="lsec final reveal"><h2>Ready when you are.</h2><button class="primary" id="final-join" type="button">Join Scrxaper</button></section>
+    <footer class="lfoot"><span>© Scrxaper</span><span>Connect freely. Belong anywhere.</span></footer>
+  </main>
+
+  <dialog id="auth-dialog" aria-labelledby="auth-title">
+    <button id="auth-x" class="sq dlg-x" type="button" aria-label="Close"></button>
+    <h2 id="auth-title">Welcome back</h2>
+    <form id="auth-form" novalidate>
+      <label>Username <input name="username" autocomplete="username" required minlength="3" maxlength="24"></label>
+      <label id="display-field" hidden>Display name <input name="displayName" maxlength="40" autocomplete="nickname"></label>
+      <label>Password <input name="password" type="password" autocomplete="current-password" required minlength="8"></label>
+      <p id="auth-error" class="error" role="alert"></p>
+      <button class="primary" type="submit">Log in</button>
+    </form>
+    <button id="auth-toggle" class="link" type="button">New here? Create an account</button>
+  </dialog>
+
+  <!-- ============ Onboarding ============ -->
+  <div id="onboard" class="onboard" hidden role="dialog" aria-modal="true" aria-label="Set up your profile"></div>
+
+  <!-- ============ App ============ -->
+  <div id="app" hidden>
+    <nav class="servers" id="servers" aria-label="Home and communities"></nav>
+    <div class="dock" id="dock" role="toolbar" aria-label="Primary"></div>
+    <aside class="list" aria-label="Conversations">
+      <header>
+        <div class="me-row"><span id="me-pfp"></span><span class="me-text"><strong id="me"></strong><small id="me-status"></small></span></div>
+        <form id="search"><input name="q" placeholder="Search messages and people" aria-label="Search" autocomplete="off" minlength="2"></form>
+      </header>
+      <div id="home-list" class="scroller">
+        <form id="new-chat" class="inline-add"><input name="to" placeholder="Message a username" aria-label="Start a conversation by username" autocomplete="off"></form>
+        <h3 class="lh">Groups <span id="add-group"></span></h3>
+        <ul id="groups"></ul>
+        <h3 class="lh">Direct messages</h3>
+        <ul id="conversations"></ul>
+        <p id="list-empty" class="empty" hidden>No conversations yet. Add a friend or enter a username above to say hello.</p>
+      </div>
+      <div id="community-list" class="scroller" hidden></div>
+      <div id="vpill" class="vpill" hidden></div>
+    </aside>
+    <section class="thread" aria-label="Conversation">
+      <header id="thread-head">
+        <button id="back" class="sq" type="button" aria-label="Back to conversations"></button>
+        <span id="peer-pfp"></span>
+        <span class="head-text"><strong id="peer-name">Select a conversation</strong><small id="peer-sub"></small></span>
+        <span class="head-actions" id="head-actions"></span>
+      </header>
+      <div id="messages" role="log" aria-live="polite"></div>
+      <div id="typing" class="typing" aria-live="polite"></div>
+      <div id="idle" class="idle"><img src="/brand/butterfly.png" alt="" width="150" height="160"><p>Pick a conversation, or search for someone to say hello.</p></div>
+      <form id="composer" hidden>
+        <div id="attach-chip" class="attach-chip" hidden></div>
+        <div class="composer-row">
+          <button id="attach" class="sq" type="button" aria-label="Attach a file"></button>
+          <input id="attach-file" type="file" hidden>
+          <input name="body" placeholder="Type a message" aria-label="Message" autocomplete="off" maxlength="4000">
+          <button class="sq primary-sq" type="submit" id="send-btn" aria-label="Send"></button>
+        </div>
+      </form>
+      <p id="thread-error" class="error" role="alert"></p>
+      <div id="drop" class="drop" hidden><div>Drop files to attach</div></div>
+    </section>
+    <aside id="members" class="members" hidden aria-label="Members"></aside>
+  </div>
+
+  <!-- ============ Overlays ============ -->
+  <section id="social" class="social" hidden aria-label="Feed, reels and explore">
+    <header class="social-bar">
+      <nav id="social-tabs"></nav>
+      <span class="grow"></span>
+      <button id="social-new" class="sq" type="button" aria-label="New post"></button>
+      <button id="social-close" class="sq" type="button" aria-label="Close"></button>
+    </header>
+    <div id="social-body"></div>
+  </section>
+  <div id="editor" class="editor" hidden role="dialog" aria-label="Editor"></div>
+  <div id="story" class="storyview" hidden role="dialog" aria-label="Story"></div>
+  <div id="lightbox" class="lightbox" hidden role="dialog" aria-label="Image"></div>
+  <div id="call" class="call" hidden role="dialog" aria-label="Call">
+    <div class="call-stage"><video id="remote-video" autoplay playsinline></video><video id="local-video" autoplay playsinline muted></video></div>
+    <div class="call-center" id="call-center"><div id="call-spec"></div><strong id="call-name"></strong><span id="call-status"></span></div>
+    <div class="call-controls">
+      <button id="call-accept" class="cbtn ok" type="button" aria-label="Accept" data-label="Accept" hidden></button>
+      <button id="call-mic" class="cbtn" type="button" aria-label="Mute microphone"></button>
+      <button id="call-cam" class="cbtn" type="button" aria-label="Turn camera off"></button>
+      <button id="call-share" class="cbtn" type="button" aria-label="Share screen"></button>
+      <button id="call-end" class="cbtn no" type="button" aria-label="End call" data-label="Decline"></button>
+    </div>
+  </div>
+  <div id="vroom" class="vroom" hidden role="dialog" aria-label="Voice room"></div>
+  <div id="invite-toast" class="invite-toast" hidden></div>
+  <dialog id="panel" aria-label="Panel"><button id="panel-close" class="sq dlg-x" type="button" aria-label="Close"></button><div id="panel-body"></div></dialog>
+  <div id="toasts" class="toasts" aria-live="polite"></div>
+  <script src="/js/app.js" type="module"></script>
+</body>
+</html>
